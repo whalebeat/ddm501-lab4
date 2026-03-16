@@ -119,7 +119,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MLFLOW_TRACKING_URI=http://mlflow:5001
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
       - MODEL_NAME=wine_quality_model
       - MODEL_STAGE=Production
       - AWS_ACCESS_KEY_ID=minio
