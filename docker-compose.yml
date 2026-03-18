@@ -154,6 +154,7 @@ services:
       - '--web.console.templates=/usr/share/prometheus/consoles'
     volumes:
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./config/prometheus/evidently_alerts.yml:/etc/prometheus/evidently_alerts.yml
       - prometheus_data:/prometheus
     ports:
       - "9090:9090"
