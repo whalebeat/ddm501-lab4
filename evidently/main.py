@@ -492,9 +492,12 @@ def perform_drift_analysis(
                 result = metric.get('result', {})
                 drift_detected = result.get('dataset_drift', False)
                 drift_score = result.get('share_of_drifted_columns', 0)
-                
-                # Get per-feature drift
+            
+            # Get per-feature drift
+            if metric.get('metric') == 'DataDriftTable':
+                result = metric.get('result', {})
                 drift_by_columns = result.get('drift_by_columns', {})
+                
                 for feature, drift_info in drift_by_columns.items():
                     is_drifted = drift_info.get('drift_detected', False)
                     score = drift_info.get('drift_score', 0)
